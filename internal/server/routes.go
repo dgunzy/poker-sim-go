@@ -47,9 +47,9 @@ func (s *Server) drawCardHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatalf("Error marshaling card to JSON. Err: %v", err)
 	}
-	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:5173") // Replace with your Vite dev server's port
-	w.Header().Set("Access-Control-Allow-Methods", "GET, OPTIONS")
-	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
 
 	_, _ = w.Write(jsonResp)
 }
